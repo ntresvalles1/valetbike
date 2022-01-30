@@ -1,7 +1,7 @@
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title">
-      Hello! Welcome to ValetBike! 🚴🏽‍♀️
+      ValetBike Stations (Descending Order)! 🚴🏽‍♀️
     </div>
 
     <br>
@@ -19,9 +19,8 @@
       <button type = "button"> Bike List </button>
     </a>
 
-
     <br>
-    <strong> ValetBike Stations in Ascending Order </strong>
+    <strong> ValetBike Stations in Descending Order: </strong>
     <div class="flexbox vertical stretch">  
       <% if @stations.present? %>
         <%= render(partial: "stations/row", collection: @stations, as: :station) %>

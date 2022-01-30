@@ -21,10 +21,10 @@
 
 
     <br>
-    <strong> ValetBike Stations in Ascending Order </strong>
+    <strong> List of Bikes: </strong>
     <div class="flexbox vertical stretch">  
-      <% if @stations.present? %>
-        <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+      <% if @bikes.present? %>
+        <%= render(partial: "bikes/row", collection: @bikes, as: :bike) %>
       <% else %>
       <div class="empty">
         No stations found.
