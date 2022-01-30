@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get "/stations/asc", to: "stations#index"
 
-  get "/bikes/docked-bikes", to: "bikes#index"
+  get "/bikes/bikes-asc", to: "bikes#index"
+
+  get "/bikes/reverse-bikes", to: "bikes#reverse"
 
 end
