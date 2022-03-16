@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'memberships/show'
   root to: "stations#index"
 
   get "/stations/desc", to: "stations#show"
