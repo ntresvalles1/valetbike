@@ -1,0 +1,1 @@
+belongs_to :users, required: true, autosave: true
