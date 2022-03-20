@@ -8,4 +8,8 @@ class StationsController < ApplicationController
     @stations = Station.all.order(identifier: :desc)
   end
   
+  def map
+    @stations = Station.all.order(identifier: :asc)
+  end
+
 end
