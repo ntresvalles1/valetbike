@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "stations#index"
+  root to: "homepage#map"
 
   get "/stations/desc", to: "stations#show"
 

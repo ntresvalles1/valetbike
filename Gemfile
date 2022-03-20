@@ -73,3 +73,4 @@ gem 'dotenv-rails'
 # gem 'paperclip
 # gem 'uniquify'
 # gem 'will_paginate'
+gem 'leaflet-rails'
