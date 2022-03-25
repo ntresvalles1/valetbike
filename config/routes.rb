@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   get 'memberships/show'
   root to: "stations#index"
 
-  get "users/initialize"
-  resources :profile 
+  #get "users/initialize"
+  #resources :profile  
 
   get "/stations/desc", to: "stations#show"
 

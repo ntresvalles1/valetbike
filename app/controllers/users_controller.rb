@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @cust_email = email
     @cust_numRides = numRides
     @cust_savedCard = savedCard
-   end 
+   end
 
    # assign bike to user
    def assignBike
