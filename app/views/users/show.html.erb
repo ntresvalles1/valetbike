@@ -1,4 +1,12 @@
 <h1>User Profile#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="flexbox vertical stretch">  
+    <% if @users.present? %>
+        <%= render(partial: "users/row", collection: @users, as: :user) %>
+    <% else %>
+    <div class="empty">
+        No users found.
+    </div>
+    <% end %>
+</div>
 
-<%= link_to "View Profile", @users.profile %> 
+<!-- <%= link_to "View Profile", @users.profile %> -->
