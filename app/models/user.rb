@@ -14,5 +14,7 @@ class User < ApplicationRecord
         @email = email
         @cash = cash
    end
+  
+  has_secure_password
 
 end 
