@@ -1,12 +1,12 @@
 class Membership < ApplicationRecord
-    attr_reader :membership_id,  :start_date, :end_date, :price
+    validates_presence_of   :identifier,
+                            :start_date,
+                            :end_date,
+                            :price
 
-    def initialize(membership_id, start_date, end_date, price)
-        @membership_id = membership_id
-        @start_date = start_date
-        @end_date = end_date
-        @price = price(membership_id)
-    end
+    validates_uniqueness_of :identifier
+
+    belongs_to  :user
 
     def price(membership_id)
         if membership_id == "1"
