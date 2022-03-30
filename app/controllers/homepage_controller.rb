@@ -1,6 +1,6 @@
 class HomepageController < ApplicationController
   
-  #########added#############
+  
   #Check user's input (username and password)
   def create
     @user = User.find_by(username: params[:username])
@@ -25,6 +25,6 @@ class HomepageController < ApplicationController
   def login
   end
   
-  #########added#############
+
   
 end

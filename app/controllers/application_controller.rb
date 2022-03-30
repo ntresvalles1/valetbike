@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   
   
-  #ADDED PT 2
+  
   include SessionsHelper
   
   private
@@ -13,22 +13,7 @@ class ApplicationController < ActionController::Base
     end
   end
   
-    # before_action :authorized
-    # helper_method :current_user
-    # helper_method :logged_in?
-    #
-    # def current_user
-    #     User.find_by(id: session[:user_id])
-    # end
-    #
-    # def logged_in?
-    #     !current_user.nil?
-    # end
-    #
-    # def authorized
-    #   #FIXXXX
-    #   redirect_to root_path unless logged_in?
-    # end
+
     
 end 
   

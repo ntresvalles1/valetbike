@@ -1,8 +1,5 @@
 class SessionsController < ApplicationController
 
-
-  #https://stackoverflow.com/questions/36882672/skip-before-action-for-a-few-controllers-in-rails
-  #skip_before_action :authorized, only: [:new, :create]
   
   def new   
   end
