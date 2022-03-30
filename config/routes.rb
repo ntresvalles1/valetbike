@@ -4,13 +4,16 @@ Rails.application.routes.draw do
   root 'sessions#map'
   
   #user routes
-  resources :users, only: [:new, :create, :edit, :update, :show, :destroy]
+  resources :users , only: [:new, :create, :edit, :update, :show, :destroy] 
   
   #sessions routes
-  get '/login', to: 'sessions#login'
+  get '/sessions', to: 'sessions#map'
+  
+  get '/signup', to:'users#new'
+  
+  get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  post '/logout', to: 'sessions#destroy'
-  get '/logout', to: 'sessions#destroy'
+  delete '/logout', to: 'sessions#destroy'
   
   
 

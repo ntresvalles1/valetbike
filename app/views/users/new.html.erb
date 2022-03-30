@@ -1,57 +1,13 @@
-<html lang = "en">
-<head>
+<h1> New Users Page (Sign Up) </h1>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <style type="text/css">
-    .Sign_Up {
-      background-color: #E6F4F1;
-      line-height: 1.6;
-      width: 30%;
-      height: 500px;
-      text-align: center;
-    }
-    .Access_Title {
-      background-color: #286090;
-      color: #FFFFFF;
-      height: 75px;
-      width: 100%;
-      text-align: center;
-    }
-
-  </style>
-</head>
-
-<body>
-
-  <br></br>
+ <%= form_for @user do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation%>
+  <%= f.submit "Sign Up" %>
+<% end %> 
 
 
-<div class = "Access_Title">
-  <h1> Create an Account </h1>
-</div>
-
-<br></br>
-
- <%#Asks user for account info, text field asks for user input %>
-<div class = "Sign_Up" >
-<h2>Sign Up</h2>
-<%= form_for @user do |f|%>
-  <%= f.label :first_name%><br>
-  <%= f.text_field :first_name%><br>
-  <%= f.label :last_name%><br>
-  <%= f.text_field :last_name%><br>
-  <%= f.label :username%><br>
-  <%= f.text_field :username%><br>
-  <%= f.label :password%><br>
-  <%= f.password_field :password%><br>
-  <%= f.label :email%><br>
-  <%= f.text_field :email%><br>
-  <%= f.submit %>
-<%end%>
-<br/>
-<%=button_to "Back to Welcome Page", '/welcome', method: :get%>
-<br/>

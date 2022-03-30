@@ -66,6 +66,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'mysql2'
 gem 'jquery-rails'
 gem 'dotenv-rails'
+gem 'bcrypt', '~> 3.1.11' ###added by Sara
 
 # Suggested Potentially Useful Gems
 # gem 'devise'
