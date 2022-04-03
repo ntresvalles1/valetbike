@@ -8,9 +8,9 @@ class HomepageController < ApplicationController
     #authenticate user credentials
     if @user && @user.authenticate(params[:password])
       
-      #set sessions and redirect on success
+      #set sessions
       session[:user_id] = @user.id
-      redirect_to '/authorized'
+      redirect_to root_url
       
     else
       

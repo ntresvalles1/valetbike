@@ -1,4 +1,15 @@
-<h1>Log In </h1>
+
+<div class = "Login">
+<h1>Log In</h1>
+
+
+<!-- error msg for invalid input -->
+ <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
 <%= form_for(:session, url: login_path) do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username %>
@@ -6,8 +17,10 @@
   <%= f.password_field :password %>
   <%= f.submit "Log in" %>
 <% end %>
+</div>
+
+
 
 <div>
-<!-- <%= link_to "Log In", '/login' %> -->
 <%= link_to "Sign Up!", '/signup' %>
 </div>
