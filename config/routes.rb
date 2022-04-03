@@ -28,10 +28,8 @@ Rails.application.routes.draw do
   get "/bikes/reverse-bikes", to: "bikes#reverse"
 
 
-  get "/aboutus", to: "homepage#aboutus"
+  get "/aboutus", to: "sessions#aboutus"
   
-  get "/profile", to: "homepage#profile"
-  
-  get "/unlock", to: "homepage#unlock"
+  get "/unlock", to: "sessions#unlock"
 
 end
