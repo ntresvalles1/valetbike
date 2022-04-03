@@ -25,6 +25,10 @@ class HomepageController < ApplicationController
   def login
   end
   
-
+  def aboutus
+  end
+  
+  def unlock
+  end
   
 end
