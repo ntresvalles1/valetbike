@@ -1,4 +1,6 @@
-<h1>@user.name Profile</h1>
+<h1>
+    Profile
+</h1>
 <div class="flexbox vertical stretch">  
     <% if @users.present? %>
         <%= render(partial: "users/row", collection: @users, as: :user) %>
