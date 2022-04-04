@@ -1,4 +1,4 @@
-<h1>User Profile#show</h1>
+<h1>@user.name Profile</h1>
 <div class="flexbox vertical stretch">  
     <% if @users.present? %>
         <%= render(partial: "users/row", collection: @users, as: :user) %>
@@ -8,5 +8,3 @@
     </div>
     <% end %>
 </div>
-
-<!-- <%= link_to "View Profile", @users.profile %> -->

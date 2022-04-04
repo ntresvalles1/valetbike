@@ -1,10 +1,4 @@
 class UsersController < ApplicationController
-   
-    def list_user
-       @users = User.all.order(identifier: :asc)
-    end
-   
- 
 
   # for the sign up page
   def new
@@ -24,7 +18,8 @@ class UsersController < ApplicationController
   
   
   def show
-    @user = User.find(params[:id])
+    @users = User.all.order(identifier: :asc)
+    #@users = User.find(params[:id])
   end
   
   private

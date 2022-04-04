@@ -9,15 +9,17 @@ class User < ApplicationRecord
                         :phone,
                         :password,
                         :email,
-                        :cash
+                        :cash,
+                        :username
   
   validates_uniqueness_of :identifier,
                           :phone,
-                          :email
+                          :email,
+                          :username
   
   has_one   :membership_type, class_name: :Membership, foreign_key: :membership_id
-  has_many  :rides, through :membership
+  has_many  :rides #, through :membership
 
-  has_secure_password
+  #has_secure_password
 
 end 

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get "/bikes/bikes-asc", to: "bikes#index"
   get "/bikes/reverse-bikes", to: "bikes#reverse"
 
-
+  #get "users/show/:id", to: "users#show"
+  get "users/show", to: "users#show"
 end
  
