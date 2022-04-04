@@ -70,64 +70,35 @@ MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
 * If using `rails s` open http://localhost:3000 (or http://127.0.0.1:3000) in a browser
 * You should see ValetBike welcome page
   
+  
+## Additional Configuration Steps
 
-## Assignment #1: Hello Stack, Welcome to ValetBike!
+**1. Overview of dev environment setup (e.g. updates to .env or Gemfile)**
+* added Leaflet gems
+* Installed bcrypt gemfile to hash and secure passwords. 
+gem 'bcrypt', '~> 3.1.11' 
 
-### Brief Background
-You and several other junior engineers have just started at ValetBike, a community tech co-op based in Nipmuc Notch, and you are excited to finally be getting paid to contribute to a meaningful app. During your hiring interview, you said you were comfortable doing full stack programming, but stressed you hadn't worked in Ruby on Rails before. The lead developer thought you were right for the position and promised you a guided tour of the codebase on your first day. However, after your onboarding, you learn they've just gone on leave indefinitely. It also turns out the lead developer was the *only* developer at ValetBike, and now the rest of the team is counting on you and the other new programmers to complete the prototype before the scheduled launch day.
+**2. Instructions for populating the database (e.g. a rake task or seed setup)**
+* Rake file for importing csv file 
+```Import_csv.rake```
 
-As a fearless software engineer you agree to onboard yourself and attempt to continue the build. You didn't get much information about the architecture or design of the product during your interview. All you remember is that the lead developer had been working with the [ValleyBike](https://valleybike.org) team to iterate on their system which launched in 2018 and that they were using GitHub to collaborate on their codebase.
+## Description of the Prototype's Functionality
+**
+* Current prototype allows users to signup and login via the Profile page
+* For now, the homepage displays a map with 1 station 
+* Allows users to access the profile page, which shows static personal information of “Anthony” that is visible when logged in, About us pageant where any users can see and learn about Bikea, Pricing page, and Unlock a bike through navigation bar at the top. 
+* It also allows developers to populate users, rides, memberships, stations, and bike database through rake commands. 
 
-### Assignment Goal
-Your primary objective is to get your development environment configured so that the existing app will run on your machine. To exceed expectations, you must add at least one feature to the current code. To distinguish yourself, you should add two or more features. See submission guidelines below for complete details.
+## Recommended walkthrough steps to observe key features
+**
+* On the landing page, check the map and its features. We should observe a station with the number of docked bikes in the Northampton area 
+* Any users (logged in or not) should be able to see details of the app by clicking on “About Us” at the navigation bar 
+* Clicking on Profile, when one is not logged in, will take you to a login page. If you don’t have an account yet, you can select the link to “Sign Up!” and create a new account. Sign-up page will ask the user to input their username, email, password, and confirmation password. You could also test the login by using already registered account, which is “Bikea” for username and “Bikea” for password. Wrong match between the username and password will produce a warning message in black “Incorrect username and/or password”. Once you have successfully logged in, it should take you to the static profile page. Note that for this prototype, confirmation email is not sent and the user can create an account with fake email address. 
+* Our current static profile page is just a simple html that does not reflect the logged-in users information. For this prototype, the successful login will take you to a page with the persona of Ariel Thirster.
+* “Pricing and Plans” will take you to a static page with a table of 2 pricing options. For the purpose of this submission, we have not included a payment process.
+* “Activate a Bike” is currently a static page with an activation code that the user can enter on a bike to activate it.
+* Log out option is also available at the top of the “personal” profile page. When selected, the user can logout.
+Note that logged in status is maintained even when the user goes through other pages unless the user selects logout or  quits the page. 
 
-### How to Begin
-* Create a GitHub account if you don't have one
-* Go to [https://github.com/deadroxy/valetbike](https://github.com/deadroxy/valetbike)
-* Follow the README instructions to configure your environment
 
-### Teamwork Guidelines
-You may work in teams of up to five people to get your environments set up and to modify the code. But you must each submit your own unique environment screenshots via Moodle. If you choose to fork the repo to add features, you can collaborate on the code, but you must each create and submit a record of a unique pull request.
 
-### Ruby on Rails Guides
-You will probably be unfamiliar with the main components of the ValetBike stack like the language (Ruby), the framework (Rails), and the database (MySQL). Luckily the lead developer left links to their favorite books and tutorials for you below. Consult them regularly as you get your bearings in the new environment.
-
-* [Getting Started with Rails](https://guides.rubyonrails.org/getting_started.html)
-* [I Love Ruby](https://i-love-ruby.gitlab.io/)
-* [The Bastards Book of Ruby](http://ruby.bastardsbook.com/)
-* [Why's (Poignant) Guide to Ruby](https://poignant.guide/)
-
-### Exploration Tips
-* Review the files the lead developer left in the `notes/` folder
-* Use GitHub to dive into previous commits to see what they built so far
-* Use `rails console` to experiment with creating station & bike records from the command line
-  - `s = Station.new(name: "Neu Station", address: "123 Novel Lane", identifier: "45")`
-  - `s.save`
-  - `b = Bike.new(identifier: "1234")`
-  - `b.current_station = s`
-  - `b.save`
-  - `s.docked_bikes`
-  - `s.docked_bikes.count`
-
-### Submission Guidelines to Meet Expectations
-1. Get ValetBike running on your development machine
-2. Modify the welcome message
-3. Take a screenshot showing your change works (include browser, console, date/time)
-4. Name the screenshot "youremail-a1-ss.png" or *.jpg (for me it would be "jbrewer-a1-ss.png")
-5. Create a text file called "youremail-a1-team.txt" (for me it would be "jbrewer-a1-team.txt")
-6. List the names of everyone you worked with on this assignment, including your own (for me it would be "Johanna Brewer")
-7. Submit your screenshot and team list via Moodle
-
-### Submission Guidelines to Exceed Expectations or Distinguish yourself
-1. Complete all of the Meets Expectations tasks
-2. Implement one (Exceeds) or more (Distinguished) of the features below
-   - Show number of docked bikes at each station
-   - Create rake task to import station & bike data from csv files
-   - Allow user to view list of bikes
-   - Allow user to switch between station and bike list views
-   - Allow user to reverse sort order of stations or bikes in list view
-3. Commit and push your changes to your fork on GitHub
-4. Create a pull request from your modified fork to the main ValetBike repo
-5. Create a file called "youremail-a1-pr.txt" (for me it would be "jbrewer-a1-pr.txt")
-6. Include a complete link to your pull request as the first line of this file (e.g. "https://github.com/deadroxy/valetbike/pull/1234")
-7. Submit your pull request file along with your screenshot and team list via Moodle
