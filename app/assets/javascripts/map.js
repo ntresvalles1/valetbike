@@ -1,6 +1,9 @@
-console.log("in map.js")
+/*
+window.onload = function () {
+
 var map = L.map('map').setView([42.299387, -72.565882], 13); //13
 
+stations = []
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3NjaGF0emtpbWNjbGFpbiIsImEiOiJjbDB5bXI1bmUwaXJ5M2tydDgzbjhsZjU0In0.q1dLi4yZolCtGpnAOJLz-w', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -11,21 +14,67 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: 'your.mapbox.access.token'
 }).addTo(map);
 
-//var marker = L.marker([42.299, -72.565]).addTo(map);
-
-
-
-var greenIcon = L.icon({
-    iconUrl: 'assets/stationmarker.png',
-    //shadowUrl: 'leaf-shadow.png',
-
-    iconSize:     [38, 95], // size of the icon
-    //shadowSize:   [50, 64], // size of the shadow
+var stationIcon = L.icon({
+    iconUrl: 'assets/bikeicon.png',
+    iconSize:     [50, 50], // size of the icon
     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    //shadowAnchor: [4, 62],  // the same for the shadow
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    popupAnchor:  [-3, -76], // point from which the popup should open relative to the iconAnchor
+    className: 'round'
 });
 
-var marker = L.marker([42.299, -72.565], { icon: greenIcon }).addTo(map);
+}
+*/
 
-marker.bindPopup("<b>Station Name!</b><br>Docked Bikes: #").openPopup();
+
+
+$(function () {
+
+
+    function initializeMap(data) {
+
+      var stations = $.parseJSON(data);
+      //var geoJSON = L.geoJSON(stations)
+      var map = L.map('map').setView([42.299387, -72.565882], 13); //13
+
+    
+
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3NjaGF0emtpbWNjbGFpbiIsImEiOiJjbDB5bXI1bmUwaXJ5M2tydDgzbjhsZjU0In0.q1dLi4yZolCtGpnAOJLz-w', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'your.mapbox.access.token'
+    }).addTo(map);
+
+    var stationIcon = L.icon({
+        iconUrl: 'assets/bikeicon.png',
+        iconSize:     [50, 50], // size of the icon
+        iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+        popupAnchor:  [-3, -76], // point from which the popup should open relative to the iconAnchor
+    });
+
+    for (var i=0; i<stations["length"]; i+=1){
+        var s = stations[i.toString()];
+        if (s["geometry"]["coordinates"][0] != null && s["geometry"]["coordinates"][1] != null){
+            console.log(s["properties"]["name"]);
+            var stationmarker = L.marker([s["geometry"]["coordinates"][0], s["geometry"]["coordinates"][1]], { icon: stationIcon }).addTo(map);
+            stationmarker.bindPopup("hello").openPopup();
+        }
+    }
+
+    console.log(stations);
+    console.log(stations["0"])
+      // this line adds our posts:
+      //geoJSON.addTo(map);
+  
+      
+    };
+  
+    $.ajax({
+      type: 'GET',
+      url: 'stations/map',
+      dataType: 'text',
+      success: initializeMap
+    });
+  });
