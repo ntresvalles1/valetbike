@@ -1,39 +1,21 @@
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
-    <div class="section-title">
-      Hello! Welcome to ValetBike! 🚴🏽‍♀️
-    </div>
-
-    <br>
-    <a href = "http://localhost:9292/stations/asc">  
-      <button type = "button"> Stations in Ascending Order: </button>
-    </a>
-
-    <br>
-    <a href = "http://localhost:9292/stations/desc">  
-      <button type = "button"> Stations in Descending Order: </button>
-    </a>
     
-    <br> 
-    <a href = "http://localhost:9292/bikes/bikes-asc">  
-      <button type = "button"> Bikes in Ascending Order </button>
-    </a>
+   
+   <% if @stations.present? %>
 
-    <br> 
-    <a href = "http://localhost:9292/bikes/reverse-bikes">  
-      <button type = "button"> Bikes in Descending Order </button>
-    </a>
-
-    <br>
-    <strong> ValetBike Stations in Ascending Order </strong>
-    <div class="flexbox vertical stretch">  
-      <% if @stations.present? %>
-        <%= render(partial: "stations/row", collection: @stations, as: :station) %>
-      <% else %>
-      <div class="empty">
-        No stations found.
-      </div>
-      <% end %>
+    <div class="empty">
+    there are stations found.
     </div>
+
+      <div id="map"></div>
+      <%= javascript_include_tag 'map' %>
+
+    <% else %>
+    <div class="empty">
+        No stations found.
+    </div>
+    <% end %>
+
 	</div>
 </div>
