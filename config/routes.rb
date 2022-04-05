@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   
-  #root to: "stations#map"
+  
   root to: "homepage#map"
-  #root to: "bikes#index"
+  
 
   get "/stations/desc", to: "stations#show"
 
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   get "/bikes/reverse-bikes", to: "bikes#reverse"
 
- # get "/stations.json"
+ 
 
   
  
