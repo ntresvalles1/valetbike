@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-  
-  #root to: "stations#map"
-  root to: "homepage#map"
-  #root to: "bikes#index"
-=======
->>>>>>> prototype-test
 
 
   root 'sessions#map'
@@ -36,18 +29,9 @@ Rails.application.routes.draw do
   get "/bikes/bikes-asc", to: "bikes#index"
   get "/bikes/reverse-bikes", to: "bikes#reverse"
 
-<<<<<<< HEAD
- # get "/stations.json"
-
-  
- 
-=======
-
   get "/aboutus", to: "sessions#aboutus"
   
   get "/unlock", to: "sessions#unlock"
   
   get "/pricing", to: "sessions#pricing"
->>>>>>> prototype-test
-
 end
