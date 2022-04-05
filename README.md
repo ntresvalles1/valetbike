@@ -74,7 +74,7 @@ MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
 ## Additional Configuration Steps
 
 **1. Overview of dev environment setup (e.g. updates to .env or Gemfile)**
-* added Leaflet gems
+* added leafletrails and geocoder gems
 * Installed bcrypt gemfile to hash and secure passwords. 
 gem 'bcrypt', '~> 3.1.11' 
 
@@ -85,10 +85,10 @@ gem 'bcrypt', '~> 3.1.11'
 ## Description of the Prototype's Functionality
 **
 * Current prototype allows users to signup and login via the Profile page
-* For now, the homepage displays a map with 1 station 
-* Allows users to access the profile page, which shows static personal information of “Anthony” that is visible when logged in, About us pageant where any users can see and learn about Bikea, Pricing page, and Unlock a bike through navigation bar at the top. 
+* For now, the landing displays a map with all the stations from the database
+* Allows users to access the profile page, which shows static personal information of “Ariel” that is visible when logged in, About Us page where any users can see and learn about Bikea, Pricing page, and Unlock a bike through navigation bar at the top. 
 * It also allows developers to populate users, rides, memberships, stations, and bike database through rake commands. 
-
+* clicking on the logo in the navigation bar will direct you to the landing page with the map
 ## Recommended walkthrough steps to observe key features
 **
 * On the landing page, check the map and its features. We should observe a station with the number of docked bikes in the Northampton area 
