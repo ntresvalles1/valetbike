@@ -3,27 +3,24 @@
 <% if logged_in? %>
   <%= render 'sessions/logged_in' %>
   <body>
-          <h1>WELCOME ANTHONY</h1>
+          <h1>WELCOME ARIEL</h1>
 
       <div>
           <h2>Personal Information</h2>
 
-          <b>Name:</b> Anthony Bridgerton
+          <b>Name:</b> Ariel Thirster
           <br>
           <b>Phone:</b> (042)345-1988
           <br>
-          <b>Email:</b> abridgerton@royalacademy.edu
+          <b>Email:</b> athirster@dunkin.edu
           <br>
-          <b>Date Of Birth:</b> April 25, 1988
+          <b>Date Of Birth:</b> April 25, 2001
         
           <h2>Plans/Membership</h2>
           Membership: 
 
           <h2>Stats:</h2>
-          <img src="bar_graph.png"
-              width="400"
-              height="235">
-
+		  <%= image_tag("stats.png", :alt => "rss feed", :size => '400x235') %>
 
       </div>
   </body>
