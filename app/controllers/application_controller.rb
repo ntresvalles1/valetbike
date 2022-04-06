@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
   
   
-  #include SessionsHelper  
+  include SessionsHelper  
 
   
   def current_user
