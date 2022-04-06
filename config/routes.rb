@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  #delete '/logout', to: 'sessions#destroy'
   get '/logout', to: 'sessions#logout'
 
   get "/stations/desc", to: "stations#show"
@@ -33,5 +32,13 @@ Rails.application.routes.draw do
   get "/unlock", to: "sessions#unlock"
   
   get "/pricing", to: "sessions#pricing"
+  
+  #email confirmation
+  resources :users do
+      member do
+        get :confirm_email
+      end
+    end
+    
 
 end

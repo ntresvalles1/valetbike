@@ -17,9 +17,13 @@ class UsersController < ApplicationController
   end
   
   def create
-    user = User.new(user_params)
-    if user.save
-      log_in @user
+    @user = User.new(user_params)
+    if @user.save
+      
+      # Deliver the signup email
+      UserNotifierMailer.send_signup_email(@user).deliver
+            
+      log_in user
       redirect_to user
     else
       render 'new'
@@ -38,5 +42,6 @@ class UsersController < ApplicationController
   def profile
     @users = User.all
   end
+  
   
 end

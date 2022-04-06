@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-  #before_action :logged_in_user, :except=>[:new, :create, :destroy]
+
   
   
   def new   
@@ -18,6 +18,7 @@ class SessionsController < ApplicationController
           flash[:notice] = "Incorrect username and/or password" # Send error when redirected
           redirect_to '/login'
       end
+      
 
     end
 
@@ -30,5 +31,3 @@ class SessionsController < ApplicationController
   end
   
 end
-
-

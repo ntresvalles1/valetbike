@@ -20,7 +20,7 @@ require 'csv'
             b = Bike.new;
             b.identifier = row['identifier']
             b.save
-	end
+	        end
     end 
 
 end
