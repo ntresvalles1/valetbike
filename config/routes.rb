@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/sessions', to: 'sessions#map'
   
   get '/signup', to:'users#new'
-  get '/logged_in_user', to: 'sessions#index'
+  #get '/logged_in_user', to: 'users#show'
   get '/not_logged_in_user', to:'sessions#index'
   #get '/profile', to: 'sessions#profile'
   get '/profile', to: 'users#show'
