@@ -1,9 +1,8 @@
 <h1>Profile Page</h1>
-<%= @user.username %>
 <% if logged_in? %>
   <%= render 'sessions/logged_in' %>
   <body>
-          <h1>WELCOME ARIEL</h1> 
+          <h1>WELCOME <%= @user.username %></h1> 
 
       <div>
           <h2>Personal Information</h2>

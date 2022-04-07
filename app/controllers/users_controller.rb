@@ -13,9 +13,6 @@ class UsersController < ApplicationController
     #@users = User.all.order(identifier: :asc)
     #@users = User.all
     #@users = User.find(params[:username])
-    #if user_signed_in? 
-      #@user = User.find(session[:user_id])
-    #else
     if !session[:user_id]
       redirect_to login_path
     else
