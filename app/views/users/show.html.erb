@@ -2,22 +2,23 @@
 <% if logged_in? %>
   <%= render 'sessions/logged_in' %>
   <body>
-          <h1>WELCOME <%= @user.username %></h1> 
+          <h1>Welcome, <%= @user.first_name.camelcase %>!</h1> 
 
       <div>
+          <br>
+       
           <h2>Personal Information</h2>
-
-          <b>Name:</b> Ariel Thirster
+          <b>Name:</b> <%= @user.first_name.camelcase %> <%= @user.last_name.camelcase %>
           <br>
-          <b>Phone:</b> (042)345-1988
-          <br>
-          <b>Email:</b> athirster@dunkin.edu
+          <b>Email:</b> <%= @user.email %>
           <br>
           <b>Date Of Birth:</b> April 25, 2001
         
+          <br><br><br>
           <h2>Plans/Membership</h2>
           Membership: 
 
+          <br><br><br>
           <h2>Stats:</h2>
 		  <%= image_tag("stats.png", :alt => "rss feed", :size => '400x235') %>
 
@@ -33,5 +34,3 @@
 </div> -->
 
 
-
-<h1>Welcome!</h1>

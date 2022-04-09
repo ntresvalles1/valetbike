@@ -1,18 +1,10 @@
 class UsersController < ApplicationController
-
-  #before_action :logged_in_user, only:[:index,]
-  #before_filter :logged_in_user, except: [:new, :create]
-  #skip_before_action :logged_in_user!, only: [:new, :create]
-  #skip_before_action :logged_in_user, :except=>[:index, :show, :new, :create]
   
   def index
       @users = User.all
   end
   
   def show
-    #@users = User.all.order(identifier: :asc)
-    #@users = User.all
-    #@users = User.find(params[:username])
     if !session[:user_id]
       redirect_to login_path
     else
@@ -36,7 +28,7 @@ class UsersController < ApplicationController
   end
   
   
-  #private - changed 
+  #private 
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation, :first_name, :last_name)
   end
@@ -47,5 +39,7 @@ class UsersController < ApplicationController
   def profile
     @users = User.all
   end
+
+  
   
 end
