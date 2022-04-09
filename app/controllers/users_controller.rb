@@ -36,9 +36,9 @@ class UsersController < ApplicationController
   end
   
   
-  #private
+  #private - changed 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation, :first_name, :last_name)
   end
   
   def logged_in

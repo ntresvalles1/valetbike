@@ -1,12 +1,14 @@
 class User < ApplicationRecord
   has_secure_password
-  # validates_presence_of :identifier,
-  #                       :name,
-  #                       :phone,
-  #                       :password,
-  #                       :email,
-  #                       :cash,
-  #                       :username
+  #validates_presence_of :first_name, 
+  #                      :email, 
+  #validates_presence_of :identifier,
+  #                      :name,
+  #                      :phone,
+  #                      :password,
+  #                      :email,
+  #                      :cash,
+  #                      :username
   
   # validates_uniqueness_of :identifier,
   #                         :phone,
