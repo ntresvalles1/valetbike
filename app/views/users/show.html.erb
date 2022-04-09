@@ -6,13 +6,12 @@
 
       <div>
           <br>
-       
-          <h2>Personal Information</h2>
-          <b>Name:</b> <%= @user.first_name.camelcase %> <%= @user.last_name.camelcase %>
+          <h2>Personal Information <a class="btn btn-outline-dark" href='/editInfo'>Edit</a> </h2> 
+          <b>Name:</b> <%= @user.first_name.camelcase %> <%= @user.last_name.camelcase %> 
           <br>
-          <b>Email:</b> <%= @user.email %>
+          <b>Email:</b> <%= @user.email %> 
           <br>
-          <b>Date Of Birth:</b> April 25, 2001
+          <b>Date Of Birth:</b> April 25, 2001 
         
           <br><br><br>
           <h2>Plans/Membership</h2>

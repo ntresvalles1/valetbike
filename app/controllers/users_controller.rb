@@ -40,6 +40,10 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  
+  # To edit user info: 
+  def editProfile
+    @user = User.find(session[:user_id])
+
+  end
   
 end

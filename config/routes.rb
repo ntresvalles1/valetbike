@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get '/not_logged_in_user', to:'sessions#index'
   #get '/profile', to: 'sessions#profile'
   get '/profile', to: 'users#show'
-  
+  get '/editInfo', to: 'users#editProfile'
   
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
