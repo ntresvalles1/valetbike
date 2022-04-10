@@ -75,3 +75,4 @@ gem 'bcrypt', '~> 3.1.11' ###added by Sara
 # gem 'uniquify'
 # gem 'will_paginate'
 gem 'leaflet-rails'
+gem 'geocoder'

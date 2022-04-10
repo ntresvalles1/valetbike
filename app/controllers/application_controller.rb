@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
   
   
-  #include SessionsHelper  
+  include SessionsHelper  
 
   
   def current_user
@@ -22,11 +22,7 @@ class ApplicationController < ActionController::Base
   
 
   def logged_in_user
-    #unless logged_in?
-      #redirect_to root_path
       redirect_to root_path unless logged_in?
-      #redirect_to '/not_logged_in_user'   ##'/logged_in_user'
-      #end
   end
     
 end 
