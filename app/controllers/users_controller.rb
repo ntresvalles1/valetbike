@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = User.find(params[:id]) ####
+    @user = User.find(params[:id]) 
   end
   
   def new
@@ -21,8 +21,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-
-      UserMailer.account_activation(@user).deliver_now       
+      UserMailer.account_activation(@user).deliver_now     
       flash[:warning] = "Please check your email to activate your account."
       redirect_to root_url
     else
