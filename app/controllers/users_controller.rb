@@ -27,6 +27,30 @@ class UsersController < ApplicationController
     end
   end
   
+
+  # To edit user info: 
+  def editProfile
+    @user = User.find(session[:user_id])
+  end
+  
+  def update
+    @user = User.find(session[:user_id])
+    if @user.update(user_params)
+      flash[:success] = "Profile updated"
+      redirect_to @user
+    else
+      render 'editProfile'
+    end
+    # if @user.update(params.require(:user).permit(:username, :email, :password, :password_confirmation, :first_name, :last_name))
+    #   flash[:success] = "User information successfully updated"
+    #   redirect_to  @user #todo_url(@user)
+    # else
+    #   flash.now[:error] = "User information update failed"
+    #   render :editProfile
+    # end
+  end
+
+
   
   #private 
   def user_params
@@ -40,10 +64,7 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  # To edit user info: 
-  def editProfile
-    @user = User.find(session[:user_id])
-
-  end
+  
+  
   
 end

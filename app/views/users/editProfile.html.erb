@@ -9,24 +9,27 @@
   <%= f.label :email %>:
   <%= f.text_field :email %>
   <br>
-  <%= f.label :password %>:
-  <%= f.password_field :password %>
-   <br>
-  <%= f.label :password_confirmation %>:
-  <%= f.password_field :password_confirmation%>
-  <br>
   <%= f.label :first_name %>:
   <%= f.text_field :first_name %>
   <br>
   <%= f.label :last_name %>:
   <%= f.text_field :last_name %>
 
-  <%= f.submit "Sign Up" %>
+  <br><br>
+  <b>Enter password to confirm changes</b>
+  <br>
+  <%= f.label :password %>:
+  <%= f.password_field :password %>
+  <br>
+  <%= f.label :password_confirmation %>:
+  <%= f.password_field :password_confirmation%>
+
+  <%= f.submit "Save Changes" %>
 <% end %> 
 
 
  
  
-
+<b>Name:</b> <%= @user.first_name.camelcase %> <%= @user.last_name.camelcase %> 
 
 
