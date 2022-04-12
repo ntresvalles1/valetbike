@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_09_172729) do
+ActiveRecord::Schema.define(version: 2022_04_12_023550) do
 
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.integer "identifier"
@@ -38,6 +38,9 @@ ActiveRecord::Schema.define(version: 2022_04_09_172729) do
     t.string "remember_token"
     t.string "first_name"
     t.string "last_name"
+    t.string "birthMonth"
+    t.integer "birthDay"
+    t.integer "birthYear"
   end
 
 end
