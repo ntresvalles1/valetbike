@@ -18,8 +18,11 @@
   <br>
   <%= f.label :password_confirmation %>:
   <%= f.password_field :password_confirmation%>
- 
+  <br>
+  <%= f.label :birth_Month %>:
+  <%= date_select("article", "written_on", :start_year => 1995, :end_year => Date.current.year, :order => [:month, :day, :year]) %>
 
+  <br>
   <%= f.submit "Sign Up" %>
 <% end %> 
 
