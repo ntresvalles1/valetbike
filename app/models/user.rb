@@ -6,7 +6,7 @@ class User < ApplicationRecord
                          :first_name,
                          :last_name
 
-  validates_uniqueness_of :username,
-                          :email
+  validates_uniqueness_of :username, inclusion:{message: "Username taken. Please choose another."}
+  validates_uniqueness_of :email, inclusion:{message: "Email taken. Please choose another."}
     
 end
