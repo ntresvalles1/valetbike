@@ -10,16 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_12_023550) do
+ActiveRecord::Schema.define(version: 2022_04_17_185646) do
 
-  create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
+  create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.integer "current_station_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "stations", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
+  create_table "rides", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "identifier"
+    t.string "startstation"
+    t.string "endstation"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "bike_id"
+    t.integer "rider_user_id"
+  end
+
+  create_table "stations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.string "name"
     t.string "address"
@@ -29,7 +39,7 @@ ActiveRecord::Schema.define(version: 2022_04_12_023550) do
     t.float "ycoord"
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
@@ -41,6 +51,10 @@ ActiveRecord::Schema.define(version: 2022_04_12_023550) do
     t.string "birthMonth"
     t.integer "birthDay"
     t.integer "birthYear"
+    t.string "identifier"
+    t.string "name"
+    t.string "phone"
+    t.string "password"
   end
 
 end

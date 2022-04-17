@@ -8,7 +8,6 @@ module SessionsHelper
   def current_user
      if session[:user_id]
        @current_user ||= User.find_by(id: session[:user_id])
-
      end
   end
 
@@ -26,6 +25,28 @@ module SessionsHelper
   def log_out
     session.delete(:user_id)
     @current_user = nil
+  end
+
+  def current_ride_id
+    if session[:user_id]
+      for ride in User.find_by(id: session[:user_id]).rides do
+        if ride.endstation.nil?
+          @current_ride_id = ride.id
+        end
+      end
+    end
+  end
+
+  def start_ride(rideid)
+    @current_ride_id = rideid
+  end
+
+  def on_ride?
+    !current_ride_id.nil?
+  end
+
+  def end_ride
+    @current_ride_id = nil
   end
   
 

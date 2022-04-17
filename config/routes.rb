@@ -3,12 +3,23 @@ Rails.application.routes.draw do
 
   root 'sessions#map'
   
-  
+  #ride routes
+  resources :ride , only: [:new, :create]
+
+  get '/checkout', to: 'rides#create'
+  post '/checkout', to: 'rides#create'
+  get '/UNLOCKBIKE', to: 'rides#new'
+  get '/checkin', to: 'rides#update'
+  post '/checkin', to: 'rides#update'
+
+
   #user routes
   resources :users , only: [:new, :create, :edit, :update, :show, :destroy] 
   
   #sessions routes
   get '/sessions', to: 'sessions#map'
+  get '/return', to: 'sessions#return'
+
   
   get '/signup', to:'users#new'
   #get '/logged_in_user', to: 'users#show'

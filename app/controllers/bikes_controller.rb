@@ -7,6 +7,12 @@ class BikesController < ApplicationController
   def reverse
     @bikes = Bike.all.order(identifier: :desc)
   end
+  
+
+  def checkout(id)
+
+
+  end
 
 end
   
