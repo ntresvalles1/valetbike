@@ -1,0 +1,5 @@
+<div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
+  <b>Date:</b> <%= rides.created_at.strftime("%B %d, %Y") %>
+  <b>From</b> <%= rides.startstation %> <b>to</b> <%= rides.endstation %> 
+  <br> <b>Duration:</b> <%= rides.updated_at - rides.created_at%> seconds
+</div>

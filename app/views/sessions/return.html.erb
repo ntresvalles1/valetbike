@@ -7,7 +7,7 @@
 
 	<%= form_for(:ride, url: checkin_path) do |f| %>
 		<%= f.label(:endstation) %>
-		<%= f.select :endstation, Station.all.collect { |s| [ s.name, s.id ] }, include_blank: false %>
+		<%= f.select :endstation, Station.all.collect { |s| [ s.name, s.name] }, include_blank: false %>
 		<%= submit_tag("RETURNBIKE") %>
 	<% end %>
 

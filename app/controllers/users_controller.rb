@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     else
       @user = User.find(session[:user_id])
     end
+    @rides = @user.rides
   end
   
   def new

@@ -18,8 +18,16 @@
           Membership: 
 
           <br><br><br>
-          <h2>Stats:</h2>
-		  <%= image_tag("stats.png", :alt => "rss feed", :size => '400x235') %>
+          <h2>Rides:</h2>
+          <div class="flexbox vertical stretch">  
+            <% if @rides.present? %>
+              <%= render(partial: "rides/row", collection: @rides, as: :rides) %>
+            <% else %>
+            <div class="empty">
+              No rides yet.
+            </div>
+            <% end %>
+          </div> 
 
       </div>
   </body>
