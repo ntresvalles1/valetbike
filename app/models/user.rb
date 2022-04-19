@@ -1,5 +1,14 @@
 class User < ApplicationRecord  
   has_secure_password
+
+  validates_presence_of  :username,
+                         :email,
+                         :password,
+                         :first_name,
+                         :last_name
+
+validates_uniqueness_of :username, inclusion:{message: "Username taken. Please choose another."}
+validates_uniqueness_of :email, inclusion:{message: "Email taken. Please choose another."}
   
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email
@@ -61,6 +70,5 @@ class User < ApplicationRecord
       self.activation_token  = User.new_token
       self.activation_digest = User.digest(activation_token)
     end
-
 
 end

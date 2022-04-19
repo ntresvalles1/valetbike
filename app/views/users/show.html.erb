@@ -1,2 +1,33 @@
-<h1>Welcome! </h1>
-<%= @user.username %> 
+<h1>Profile Page</h1>
+<% if logged_in? %>
+  <%= render 'sessions/logged_in' %>
+  <body>
+          <h1>Welcome, <%= @user.first_name.camelcase %>!</h1> 
+
+      <div>
+          <br>
+          <h2>Personal Information <a class="btn btn-outline-dark" href='/editInfo'>Edit</a> </h2> 
+          <b>Name:</b> <%= @user.first_name.camelcase %> <%= @user.last_name.camelcase %> 
+          <br>
+          <b>Email:</b> <%= @user.email %> 
+          <br>
+          <b>Date Of Birth:</b> <%= @user.birthMonth%> <%= @user.birthDay%>, <%= @user.birthYear%>
+        
+          <br><br><br>
+          <h2>Plans/Membership</h2>
+          Membership: 
+
+          <br><br><br>
+          <h2>Stats:</h2>
+		  <%= image_tag("stats.png", :alt => "rss feed", :size => '400x235') %>
+
+      </div>
+  </body>
+  
+<% else %>
+  <%= render 'sessions/not_logged_in' %>
+<% end %>
+
+
+
+
