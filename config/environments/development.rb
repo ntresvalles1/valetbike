@@ -30,7 +30,7 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  #added 
+  #Send email from bikea email 
   config.action_mailer.delivery_method = :sendmail
   
   config.action_mailer.perform_deliveries = true

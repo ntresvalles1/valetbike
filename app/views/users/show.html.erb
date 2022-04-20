@@ -3,7 +3,15 @@
   <%= render 'sessions/logged_in' %>
   <body>
           <h1>Welcome, <%= @user.first_name.camelcase %>!</h1> 
-
+		  
+		  
+		  <!-- msg: profile updated -->
+		  <% if flash[:success] %>
+		       <div class="alert alert-info">
+		         <%= flash[:success] %>
+		       </div>
+		  <% end %>
+		  
       <div>
           <br>
           <h2>Personal Information <a class="btn btn-outline-dark" href='/editInfo'>Edit</a> </h2> 

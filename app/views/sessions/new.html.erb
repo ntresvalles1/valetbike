@@ -3,12 +3,15 @@
 <h1>Log In</h1>
 
 
-<!-- error msg for invalid input -->
+<!-- msg = Account not activated. Check your email for the activation link. -->
+<!-- msg = Incorrect username and/or password -->
+<!-- msg = Email sent with password reset instructions -->
  <% if flash[:warning] %>
-      <div class="flash">
+      <div class="alert alert-warning">
         <%= flash[:warning] %>
       </div>
-    <% end %>
+ <% end %>
+    
 
 <%= form_for(:session, url: login_path) do |f| %>
   <%= f.label :username %>
