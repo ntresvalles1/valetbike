@@ -9,8 +9,9 @@ class UsersController < ApplicationController
       redirect_to login_path
     else
       @user = User.find(session[:user_id])
+      @rides = @user.rides
     end
-    @rides = @user.rides
+    # @rides = @user.rides
   end
   
   def new
