@@ -5,11 +5,11 @@ class UsersController < ApplicationController
   end
   
   def show
-
     if !session[:user_id]
       redirect_to login_path
     else
       @user = User.find(session[:user_id])
+      @rides = @user.rides
     end
   end
   
@@ -62,7 +62,6 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  
   
   
   

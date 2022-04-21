@@ -34,6 +34,7 @@ class SessionsController < ApplicationController
   
   def logout
       session[:user_id]= nil
+      session[:current_ride_id]= nil
       #log_out if logged_in?
       redirect_to login_url
   end

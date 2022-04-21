@@ -1,6 +1,41 @@
 <div>
-
 <br>
-	<h1>Unlock a Bike</h1>
-	<center> Your bike code is : 34567 </center>
+	
+	<% if logged_in? %>
+
+		<%if !on_ride? %>
+
+			<center><h1>Unlock a Bike</h1></center>
+			<hr/>
+			<%= form_for(:ride, url: checkout_path) do |f| %>
+				<br>
+				<%= f.label(:bike_id) %> ID:
+				<%= f.text_field(:bike_id) %>
+				<br>
+				<%= f.label(:start_station) %>:
+				<%= f.select :startstation, Station.all.collect { |s| [ s.name, s.name ] }, include_blank: true %>
+				<% f.label(:rider_user_id) %>
+				<% f.text_field(current_user) %>
+				<br><br>
+				<center><%= submit_tag("UNLOCK A BIKE") %> </center>
+			<% end %>
+
+		<% else %>
+			 <center> <h1> Return Bike</h1> </center>
+			 <hr/> <br>
+			<p> You are on a bike ride! Would you like to return your bike? </p>
+			<center><%= link_to "Return My Bike", return_path %></center>
+
+		<% end %>
+
+	<% else %>
+	<br>
+		<center><h1> Unlock a Bike </h1></center>
+		<br>
+		In order to unlock a bike, please login!
+		<br><br>
+		<center><a class="btn btn-outline-info" href="/login">Sign in!</a></center>
+	<% end %>
+	
+	
 </div>

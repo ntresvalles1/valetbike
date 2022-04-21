@@ -10,13 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_12_023550) do
+ActiveRecord::Schema.define(version: 2022_04_17_185646) do
 
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.integer "identifier"
     t.integer "current_station_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "rides", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
+    t.integer "identifier"
+    t.string "startstation"
+    t.string "endstation"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "bike_id"
+    t.integer "rider_user_id"
   end
 
   create_table "stations", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
@@ -36,18 +46,18 @@ ActiveRecord::Schema.define(version: 2022_04_12_023550) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", null: false
     t.string "remember_token"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "birthMonth"
-    t.integer "birthDay"
-    t.integer "birthYear"
     t.boolean "email_confirmed", default: false
     t.string "confirm_token"
     t.string "activation_digest"
     t.boolean "activated", default: false
     t.datetime "activated_at"
+    t.string "first_name"
+    t.string "last_name"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
+    t.string "birthMonth"
+    t.integer "birthDay"
+    t.integer "birthYear"
   end
 
 end
