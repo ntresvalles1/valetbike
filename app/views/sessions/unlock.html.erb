@@ -5,16 +5,19 @@
 
 		<%if !on_ride? %>
 
-			<h1>Unlock a Bike</h1>
-
+			<center><h1>Unlock a Bike</h1></center>
+			<hr/>
 			<%= form_for(:ride, url: checkout_path) do |f| %>
-				<%= f.label(:bike_id) %>
+				<br>
+				<%= f.label(:bike_id) %> ID:
 				<%= f.text_field(:bike_id) %>
-				<%= f.label(:startstation) %>
+				<br>
+				<%= f.label(:start_station) %>:
 				<%= f.select :startstation, Station.all.collect { |s| [ s.name, s.name ] }, include_blank: true %>
 				<% f.label(:rider_user_id) %>
 				<% f.text_field(current_user) %>
-				<%= submit_tag("UNLOCKBIKE") %>
+				<br><br>
+				<center><%= submit_tag("UNLOCK A BIKE") %> </center>
 			<% end %>
 
 		<% else %>
@@ -25,8 +28,12 @@
 		<% end %>
 
 	<% else %>
+	<br>
+		<center><h1> Unlock a Bike </h1></center>
+		<br>
 		In order to unlock a bike, please login!
-		<a class="button" href="/not_logged_in_user">Sign in!</a>
+		<br><br>
+		<center><a class="btn btn-outline-info" href="/not_logged_in_user">Sign in!</a></center>
 	<% end %>
 	
 	

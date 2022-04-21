@@ -35,7 +35,7 @@ body {
 }
 
 hr.rounded {
-  border: 0;
-  border-top: 2px solid brown;
+  border: 5;
+  border-top: 5px solid brown;
   border-radius: 5px;
 }

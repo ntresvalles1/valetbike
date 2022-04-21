@@ -46,4 +46,6 @@ Rails.application.routes.draw do
   get "/unlock", to: "sessions#unlock"
   
   get "/pricing", to: "sessions#pricing"
+
+  get "/faq", to: "sessions#faq"
 end
