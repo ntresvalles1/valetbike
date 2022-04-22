@@ -3,6 +3,13 @@
 	
 	<% if logged_in? %>
 
+		<!-- error msg for invalid input -->
+		<% if flash[:warning] %>
+			<div class="alert alert-info">
+			<%= flash[:warning] %>
+			</div>
+	   <% end %>
+
 		<%if !on_ride? %>
 
 			<h1>Unlock a Bike</h1>
@@ -11,7 +18,7 @@
 				<%= f.label(:bike_id) %>
 				<%= f.text_field(:bike_id) %>
 				<%= f.label(:startstation) %>
-				<%= f.select :startstation, Station.all.collect { |s| [ s.name, s.id ] }, include_blank: true %>
+				<%= f.select :startstation, Station.all.collect { |s| [ s.name, s.name ] }, include_blank: true %>
 				<% f.label(:rider_user_id) %>
 				<% f.text_field(current_user) %>
 				<%= submit_tag("UNLOCKBIKE") %>
@@ -24,6 +31,7 @@
 
 		<% end %>
 
+		
 	<% else %>
 		In order to unlock a bike, please login!
 		<a class="button" href="/not_logged_in_user">Sign in!</a>
