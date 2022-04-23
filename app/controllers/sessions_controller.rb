@@ -16,14 +16,6 @@ class SessionsController < ApplicationController
                 redirect_to '/login'
               end
         
-# =======
-#       @user = User.find_by(username: params[:session][:username].downcase)
-#       if @user && @user.authenticate(params[:session][:password])
-#           session[:user_id] = @user.id
-#
-#           #redirect_to '/logged_in_user'
-#           redirect_to '/profile'
-# >>>>>>> user-profile-updated
 
       else
           flash[:warning] = "Incorrect username and/or password" 

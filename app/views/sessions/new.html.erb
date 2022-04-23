@@ -3,12 +3,12 @@
 <h1><center>Log In</center></h1>
 
 <br>
-<!-- error msg for invalid input -->
+
  <% if flash[:warning] %>
       <div class="flash">
         <%= flash[:warning] %>
       </div>
-    <% end %>
+ <% end %>
 
 <%= form_for(:session, url: login_path) do |f| %>
   <%= f.label :username %>
