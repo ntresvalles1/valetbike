@@ -3,25 +3,25 @@
     
  <br>
  <%= form_for @user do |f| %>
-  <%= f.label :username %>:
+  <%= f.label :username %>
   <%= f.text_field :username %>
   <br>
-  <%= f.label :email %>:
+  <%= f.label :email %>
   <%= f.text_field :email %>
   <br>
-  <%= f.label :first_name %>:
+  <%= f.label :first_name %>
   <%= f.text_field :first_name %>
   <br>
-  <%= f.label :last_name %>:
+  <%= f.label :last_name %>
   <%= f.text_field :last_name %>
 
   <br><br>
   <b>Enter password to confirm changes</b>
   <br>
-  <%= f.label :password %>:
+  <%= f.label :password %>
   <%= f.password_field :password %>
   <br>
-  <%= f.label :password_confirmation %>:
+  <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation%>
 
   <%= f.submit "Save Changes", class: "btn btn-outline-info"%>
