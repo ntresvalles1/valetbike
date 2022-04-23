@@ -43,8 +43,7 @@ require 'csv'
     end 
     
     
-    desc "updating bike data to the database"
-
+    
     task add_bikeData: :environment do
         csv_text = File.read(Rails.root.join('notes','bike-data.csv'))
         csv = CSV.parse(csv_text, :headers => true)
@@ -52,9 +51,9 @@ require 'csv'
             b = Bike.find_by(identifier: row['identifier'])
             b.current_station_id = row['current_station_identifier']     
             b.save
-            end
         end
     end
+    
 
 
 

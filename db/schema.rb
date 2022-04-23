@@ -59,17 +59,6 @@ ActiveRecord::Schema.define(version: 2022_04_21_185414) do
     t.string "birthMonth"
     t.integer "birthDay"
     t.integer "birthYear"
-    # t.string "identifier"
-    # t.string "name"
-    # t.string "phone"
-    # t.string "password"
-    # t.boolean "email_confirmed", default: false
-    # t.string "confirm_token"
-    # t.string "activation_digest"
-    # t.boolean "activated", default: false
-    # t.datetime "activated_at"
-    # t.string "reset_digest"
-    # t.datetime "reset_sent_at"
   end
 
 end

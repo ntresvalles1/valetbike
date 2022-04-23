@@ -5,8 +5,8 @@ class Station < ApplicationRecord
                            :name,
                            :address,
                            :xcoord,
-                           :ycoord,
-                           :docks
+                           :ycoord
+                           #:docks
   validates_uniqueness_of  :identifier
   
   
