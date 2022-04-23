@@ -47,18 +47,18 @@ ActiveRecord::Schema.define(version: 2022_04_21_185414) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", null: false
     t.string "remember_token"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "birthMonth"
+    t.integer "birthDay"
+    t.integer "birthYear"
     t.boolean "email_confirmed", default: false
     t.string "confirm_token"
     t.string "activation_digest"
     t.boolean "activated", default: false
     t.datetime "activated_at"
-    t.string "first_name"
-    t.string "last_name"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
-    t.string "birthMonth"
-    t.integer "birthDay"
-    t.integer "birthYear"
   end
 
 end
