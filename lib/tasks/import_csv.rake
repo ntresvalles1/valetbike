@@ -26,4 +26,16 @@ require 'csv'
         end
     end 
     
+    task create_membershipData: :environment do
+        csv_text = File.read(Rails.root.join('notes', 'membership-data.csv'))
+        csv = CSV.parse(csv_text, :headers => true)
+        csv.each do |row|
+            m = Membership.new;
+            m.identifier = row['identifier']
+            m.price = row['price']
+            m.name = row['name']
+            m.save
+        end
+    end 
+    
 end

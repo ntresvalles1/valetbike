@@ -47,5 +47,10 @@ Rails.application.routes.draw do
 
   get "/bikes/bikes-asc", to: "bikes#index"
   get "/bikes/reverse-bikes", to: "bikes#reverse"
+  
+  
+  get "/purchase", to: "sessions#purchase" 
+  get "/confirmation", to: "users#confirmation"
+  post "/addMembership", to: "users#addMembership"
 
 end

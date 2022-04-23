@@ -39,4 +39,21 @@ class SessionsController < ApplicationController
       redirect_to login_url
   end
   
+  
+  def pricing
+    @membership1 = Membership.find_by(name: "basic")
+    @membership2 = Membership.find_by(name: "premium")
+  end
+    
+    
+  def purchase_logged_in
+    if logged_in?
+      @membership1 = Membership.find_by(name: "basic")
+      @membership2 = Membership.find_by(name: "premium")
+      render 'sessions/purchase_logged_in'
+      else 
+        redirect_to login_url
+      end
+  end
+  
 end
