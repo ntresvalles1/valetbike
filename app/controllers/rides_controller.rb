@@ -11,16 +11,14 @@ class RidesController < ApplicationController
     def create()
         
         @stat = Station.find_by(name: ride_params[:startstation])
-        #checked = false
-
         @bike = Bike.find_by(identifier: ride_params[:bike_id], current_station_id: @stat.identifier)
 
-        #if check_bike_at_station(ride_params[:startstation], ride_params[:bike_id])?
         if @bike.present?
           
             @ride = Ride.new(ride_params)
             @ride.rider_user_id = session[:user_id]
             if @ride.save!
+                @stat.docked_bikes.delete(@bike)
                 start_ride(@ride.id)
                 @bike = Bike.find_by(identifier: @ride.bike_id)
                 @bike.update(current_station_id: nil)
@@ -36,21 +34,6 @@ class RidesController < ApplicationController
 
     end
 
-    #def check_bike_at_station(station_name, bike_id)
-        #@stat = Station.find_by(name: ride_params[:startstation])
-        #checked = false
-        #if @stat.present?  
-            #for bike in @stat.bikes
-                #if bike.id == ride_params[:bike_id] do
-                    #checked = true
-
-                #end
-            #end
-        #end
-        #checked?
-
-    #end
-
     def update()
         @ride = Ride.find_by(id: current_ride_id, rider_user_id: session[:user_id])
         @ride.update(endstation: ride_params[:endstation])
@@ -61,7 +44,6 @@ class RidesController < ApplicationController
 
         end_ride
 
-        #flash[:success] = "Bike returned!"
         redirect_to '/unlock'
     end
 
