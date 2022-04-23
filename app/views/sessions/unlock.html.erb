@@ -3,6 +3,13 @@
 	
 	<% if logged_in? %>
 
+		<!-- error msg for invalid input -->
+		<% if flash[:warning] %>
+			<div class="alert alert-info">
+			<%= flash[:warning] %>
+			</div>
+	   <% end %>
+
 		<%if !on_ride? %>
 
 			<center><h1>Unlock a Bike</h1></center>
@@ -11,8 +18,7 @@
 				<br>
 				<%= f.label(:bike_id) %> ID:
 				<%= f.text_field(:bike_id) %>
-				<br>
-				<%= f.label(:start_station) %>:
+				<%= f.label(:startstation) %>
 				<%= f.select :startstation, Station.all.collect { |s| [ s.name, s.name ] }, include_blank: true %>
 				<% f.label(:rider_user_id) %>
 				<% f.text_field(current_user) %>
@@ -28,6 +34,7 @@
 
 		<% end %>
 
+		
 	<% else %>
 	<br>
 		<center><h1> Unlock a Bike </h1></center>

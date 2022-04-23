@@ -40,7 +40,7 @@ $(function () {
             var stationmarker = L.marker([s["geometry"]["coordinates"][0], s["geometry"]["coordinates"][1]], { icon: stationIcon }).addTo(map);
             //stationmarker.bindPopup(s["properties"]["name"]).openPopup();
             //"<b>Hello world!</b><br>I am a popup."
-            var message = "<b>" + s["properties"]["name"] + "</b><br> Available Bikes: 6/8";
+            var message = "<b>" + s["properties"]["name"] + "</b><br> Available Bikes: " + s["properties"]["docked_bikes"] + "/" + s["properties"]["docks"];
             stationmarker.bindPopup(message).openPopup();
 
             

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_17_185646) do
+ActiveRecord::Schema.define(version: 2022_04_21_185414) do
 
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.integer "identifier"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2022_04_17_185646) do
     t.datetime "updated_at", precision: 6, null: false
     t.float "xcoord"
     t.float "ycoord"
+    t.integer "docks"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
@@ -58,6 +59,17 @@ ActiveRecord::Schema.define(version: 2022_04_17_185646) do
     t.string "birthMonth"
     t.integer "birthDay"
     t.integer "birthYear"
+    # t.string "identifier"
+    # t.string "name"
+    # t.string "phone"
+    # t.string "password"
+    # t.boolean "email_confirmed", default: false
+    # t.string "confirm_token"
+    # t.string "activation_digest"
+    # t.boolean "activated", default: false
+    # t.datetime "activated_at"
+    # t.string "reset_digest"
+    # t.datetime "reset_sent_at"
   end
 
 end
