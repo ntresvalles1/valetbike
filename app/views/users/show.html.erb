@@ -13,12 +13,13 @@
           <br>
           <b>Email:</b> <%= @user.email %> 
           <br>
-          <b>Date Of Birth:</b> <%= @user.birthMonth%> <%= @user.birthDay%>, <%= @user.birthYear%>
+          <b>Date Of Birth:</b> <%= @user.birthMonth%> <%= @user.birthDay%>, <%= @user.birthYear%><br>
+		  <b>Points:</b> <%= @user.points%>
         
           <br><br><br>
           <hr/>
           <h2>Plans/Membership</h2>
-          Membership: 
+          Membership ID: <%= Membership.find_by(identifier: @user.membershipID).name%>
 
         
           <br><br><br>

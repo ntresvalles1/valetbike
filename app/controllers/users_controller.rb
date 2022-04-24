@@ -63,6 +63,15 @@ class UsersController < ApplicationController
   end
 
   
-  
+  def addMembership
+    @user = User.find(session[:user_id])
+    # @user.update(membershipID: params[:identifier])
+    @user.update_attribute(:membershipID, params[:identifier])
+    # @user.update_attribute(membershipID: params[:identifier])
+    @membership = Membership.find_by(identifier: params[:identifier])
+    @user.update_attribute(:points, @user.points - @membership.price)
+    
+    render "confirmation"
+  end
   
 end

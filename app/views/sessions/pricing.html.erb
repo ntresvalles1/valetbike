@@ -20,8 +20,8 @@
 	</tr>
 	<tr>
 		<td></td>
-		<td><input type="submit" class="btn btn-outline-info" value="purchase" /></td>
-		<td><input type="submit" class="btn btn-outline-info" value="purchase" /></td>
+		<td><%= button_to "purchase", addMembership_path, :method => "post", params: {identifier: @membership1.identifier } %></td>
+		<td><%= button_to "purchase", addMembership_path, :method => "post", params: {identifier: @membership2.identifier } %></td>
 	</tr>
 
 </table>

@@ -9,6 +9,7 @@ class User < ApplicationRecord
 validates_uniqueness_of :username, inclusion:{message: "Username taken. Please choose another."}
 validates_uniqueness_of :email, inclusion:{message: "Email taken. Please choose another."}
 has_many :rides, class_name: :Ride, foreign_key: :rider_user_id
+belongs_to :current_membership, class_name: :Membership, foreign_key: :membershipID, optional: true
   
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email
@@ -70,5 +71,6 @@ has_many :rides, class_name: :Ride, foreign_key: :rider_user_id
       self.activation_token  = User.new_token
       self.activation_digest = User.digest(activation_token)
     end
-
+    
+    
 end
