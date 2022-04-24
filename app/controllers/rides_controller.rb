@@ -10,27 +10,41 @@ class RidesController < ApplicationController
 
     def create()
         
-        @stat = Station.find_by(name: ride_params[:startstation])
-        @bike = Bike.find_by(identifier: ride_params[:bike_id], current_station_id: @stat.identifier)
 
-        if @bike.present?
-          
-            @ride = Ride.new(ride_params)
-            @ride.rider_user_id = session[:user_id]
-            if @ride.save!
-                @stat.docked_bikes.delete(@bike)
-                start_ride(@ride.id)
-                @bike = Bike.find_by(identifier: @ride.bike_id)
-                @bike.update(current_station_id: nil)
-               
-                redirect_to '/return'
-                        
-            end
-               
+        @user = User.find_by(id: session[:user_id])
+        if @user.membershipID==30
+            flash[:warning] = "You do not have a membership. Please purchase a membership in order to unlock a bike."
+            
         else
-            flash[:warning] = "That bike is not docked at the selected station. Please enter a valid bike id."
-            redirect_to '/unlock'
+
+        
+            @stat = Station.find_by(name: ride_params[:startstation])
+            @bike = Bike.find_by(identifier: ride_params[:bike_id], current_station_id: @stat.identifier)
+
+            if @bike.present?
+            
+                @ride = Ride.new(ride_params)
+                @ride.rider_user_id = session[:user_id]
+                if @ride.save!
+                    @stat.docked_bikes.delete(@bike)
+                    start_ride(@ride.id)
+                    @bike = Bike.find_by(identifier: @ride.bike_id)
+                    @bike.update(current_station_id: nil)
+                
+                    redirect_to '/return'
+                            
+                end
+                
+            else
+                flash[:warning] = "That bike is not docked at the selected station. Please enter a valid bike id."
+                
+            end
         end
+        redirect_to '/unlock'
+        #else
+            #flash[:warning] = "You do not have a membership. Please purchase a membership in order to unlock a bike."
+            #redirect_to '/unlock'
+        
 
     end
 
