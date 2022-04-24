@@ -1,3 +1,4 @@
 identifier,name,price
-10,"basic",15
-20,"premium",40
+10,"Basic",15
+20,"Premium",40
+30,"No Membership Purchased Yet.", 0

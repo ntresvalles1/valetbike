@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(user_params)
-
+    @user.membershipID = 30
     if @user.save
       UserMailer.account_activation(@user).deliver_now     
       flash[:warning] = "Please check your email to activate your account."
