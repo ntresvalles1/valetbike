@@ -64,14 +64,18 @@ class UsersController < ApplicationController
 
   
   def addMembership
-    @user = User.find(session[:user_id])
-    # @user.update(membershipID: params[:identifier])
-    @user.update_attribute(:membershipID, params[:identifier])
-    # @user.update_attribute(membershipID: params[:identifier])
-    @membership = Membership.find_by(identifier: params[:identifier])
-    @user.update_attribute(:points, @user.points - @membership.price)
-    
-    render "confirmation"
+    if !session[:user_id]
+      redirect_to confirmation_path
+    else
+      @user = User.find(session[:user_id])
+      # @user.update(membershipID: params[:identifier])
+      @user.update_attribute(:membershipID, params[:identifier])
+      # @user.update_attribute(membershipID: params[:identifier])
+      @membership = Membership.find_by(identifier: params[:identifier])
+      @user.update_attribute(:points, @user.points - @membership.price)
+      
+      render "confirmation"
+    end
   end
   
 end
