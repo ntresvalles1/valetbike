@@ -119,7 +119,7 @@ MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
 
 ## Recommended walkthrough steps to observe key features
 * On the landing page, check the map and its features. Observe the different locations of the stations and the number of docked bikes at each station.
-* Any users (logged in or not) should be able to see details of the app by clicking on “About Us” at the navigation bar. 
+* Any users (logged in or not) should be able to see details of the app by clicking on “About Us” at the navigation bar. Click through all the pages on the navigation bar.
 * Click on the profile page. If you do not have an account follow the instructions to sign-up. Otherwise, log-in.
     * After creating a new account, you must activate that account by clicking on the link sent to your email. 
 * After logging in, view your profile page that reflects your personal information, membership, and past rides. 
