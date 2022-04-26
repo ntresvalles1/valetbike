@@ -110,7 +110,7 @@ MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
 * Membership:
     * Users can purchase a membership on the pricing page. 
     * Uses a "points" system in account on website to purchase membership. 
-    * points are displayed for each user
+    * Points are displayed for each user
 
 ## Description of the MVP's functionality
 * The MVP allows users to sign up for an account. Once all the fields are completed, the user will receive an email authentication. 
