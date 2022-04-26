@@ -66,8 +66,7 @@ MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
 
 **8. Confirm app runs**
 * Launch web server using `rackup` or `rails s`
-* If using `rackup` open http://localhost:9292 (or http://127.0.0.1:9292) in a browser
-* If using `rails s` open http://localhost:3000 (or http://127.0.0.1:3000) in a browser
+* Make sure you are using `rails s` open http://localhost:3000 (or http://127.0.0.1:3000) in a browser
 * You should see ValetBike welcome page
   
   
@@ -86,6 +85,8 @@ MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
 * `rake import_csv:add_bikeData`
 * `rake import_csv:create_membershipData`
 * `rake db:migrate`
+* If needed, update database.yml page so that socket variables takes the correct socket path name. The socket path name can be found on the .env file, which includes the credential when you installed MySQL, or you could type “mysql -u root -p” on the terminal and then “SHOW VARIABLES LIKE ‘socket’;” when prompted with “MySQL[(none)]>”. The socket path should appear for you to copy into the database.yml file, next to the “socket” variable. You may also need to manually input your username and password for MySQL in line 12 and 13 if you encounter an “Access denied for user '...'@'localhost'” error. 
+* When launching web server, use “rails s” (and not “rackup”) to avoid the error when creating an account that requires email authentication. Upon launching, you should be taken to the home page(http://127.0.0.1:3000 or http://[::1]:3000)  with the message “WELCOME TO BIKEA'S VALETBIKE”. 
 
 ## Changes made since prototype 
 * Create Account:
