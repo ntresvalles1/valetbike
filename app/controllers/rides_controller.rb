@@ -14,7 +14,7 @@ class RidesController < ApplicationController
         @user = User.find_by(id: session[:user_id])
         if @user.membershipID==30
             flash[:warning] = "You do not have a membership. Please purchase a membership in order to unlock a bike."
-            
+            redirect_to '/unlock'
         else
 
         
@@ -37,10 +37,10 @@ class RidesController < ApplicationController
                 
             else
                 flash[:warning] = "That bike is not docked at the selected station. Please enter a valid bike id."
-                
+                redirect_to '/unlock'
             end
         end
-        redirect_to '/unlock'
+        
         #else
             #flash[:warning] = "You do not have a membership. Please purchase a membership in order to unlock a bike."
             #redirect_to '/unlock'
