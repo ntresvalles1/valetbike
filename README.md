@@ -65,7 +65,7 @@ MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
 * `rake db:migrate`
 
 **8. Confirm app runs**
-* Launch web server using `rackup` or `rails s`
+* Launch web server using `rails s`
 * Make sure you are using `rails s` open http://localhost:3000 (or http://127.0.0.1:3000) in a browser
 * You should see ValetBike welcome page
   
@@ -115,11 +115,12 @@ MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
 ## Description of the MVP's functionality
 * The MVP allows users to sign up for an account. Once all the fields are completed, the user will receive an email authentication. 
 * Users have a profile page that displays their personal information, past and current rides, and their current membership. 
-* Users can rent and return a bike, with and without a membership.
+* Users can rent and return a bike with a membership.
 * Through the map, users can see the number of docked bikes at each station.
 * Users can purchase a membership through the pricing page.
 
 ## Recommended walkthrough steps to observe key features
+* Make sure to use `rails s` to authenticate email to create an account.
 * On the landing page, check the map and its features. Observe the different locations of the stations and the number of docked bikes at each station.
 * Any users (logged in or not) should be able to see details of the app by clicking on “About Us” at the navigation bar. Click through all the pages on the navigation bar.
 * Click on the profile page. If you do not have an account follow the instructions to sign-up. Otherwise, log-in.
