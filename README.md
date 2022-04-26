@@ -65,40 +65,71 @@ MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
 * `rake db:migrate`
 
 **8. Confirm app runs**
-* Launch web server using `rackup` or `rails s`
-* If using `rackup` open http://localhost:9292 (or http://127.0.0.1:9292) in a browser
-* If using `rails s` open http://localhost:3000 (or http://127.0.0.1:3000) in a browser
+* Launch web server using `rails s`
+* Make sure you are using `rails s` open http://localhost:3000 (or http://127.0.0.1:3000) in a browser
 * You should see ValetBike welcome page
   
   
 ## Additional Configuration Steps
 
 **1. Overview of dev environment setup (e.g. updates to .env or Gemfile)**
-* added leafletrails and geocoder gems
-* Installed bcrypt gemfile to hash and secure passwords. 
-gem 'bcrypt', '~> 3.1.11' 
+* Install leaflet-rails and geocoder gems
+* Install bcrypt gem 
+* Install rails-6.1.5
+* `bundle install`
 
 **2. Instructions for populating the database (e.g. a rake task or seed setup)**
-* Rake file for importing csv file 
-```Import_csv.rake```
+* `rake import_csv:create_stationData`
+* `rake import_csv:add_stationData`
+* `rake import_csv:create_bikeData`
+* `rake import_csv:add_bikeData`
+* `rake import_csv:create_membershipData`
+* `rake db:migrate`
+* If needed, update database.yml page so that socket variables takes the correct socket path name. The socket path name can be found on the .env file, which includes the credential when you installed MySQL, or you could type “mysql -u root -p” on the terminal and then “SHOW VARIABLES LIKE ‘socket’;” when prompted with “MySQL[(none)]>”. The socket path should appear for you to copy into the database.yml file, next to the “socket” variable. You may also need to manually input your username and password for MySQL in line 12 and 13 if you encounter an “Access denied for user '...'@'localhost'” error. 
+* When launching web server, use “rails s” (and not “rackup”) to avoid the error when creating an account that requires email authentication. Upon launching, you should be taken to the home page(http://127.0.0.1:3000 or http://[::1]:3000)  with the message “WELCOME TO BIKEA'S VALETBIKE”. 
 
-## Description of the Prototype's Functionality
-**
-* Current prototype allows users to signup and login via the Profile page
-* For now, the landing displays a map with all the stations from the database
-* Allows users to access the profile page, which shows static personal information of “Ariel” that is visible when logged in, About Us page where any users can see and learn about Bikea, Pricing page, and Unlock a bike through navigation bar at the top. 
-* It also allows developers to populate users, rides, memberships, stations, and bike database through rake commands. 
-* clicking on the logo in the navigation bar will direct you to the landing page with the map
+## Changes made since prototype 
+* Create Account:
+    * Email authentication — users need to activate new accounts through email. Activating the account will automatically take one to the logged in homepage. (The activation link will stay active). 
+    * “Sign-up now” requires the user to fill in Username, Email, First name, Last name, Password, Password confirmation, and Birth year. Not filling all of these fields will produce an error message with the list of fields left blank.
+    * Forgot password— users can change their password through email (“reset password” link only works once, from second time on, it would take the user to the homepage in logged out state).
+    * All emails from our website are sent from “bikeatest” (bikeatest@gmail.com).
+* Profile Page
+    * Not static, reflects personal information of the user who is currently signed in. 
+    * Users can edit their personal information. 
+    * Created more personal information fields, such as birthdate and name. 
+    * List all the rides a user has taken. This includes: date, start station, end station, and duration. 
+    * Display user's membership.
+* Renting a Bike:
+    * User fills in bike_id and selects station that they are renting a bike from.
+        * If bike_id is not present at the station selected, the user will flash receive a warning, and user is not able to rent bike.
+    * At end of ride, user selects station they are returning bike to.
+* Map:
+    * Shows current number of docked bikes at each station. 
+    * Changed map marker.
+* Membership:
+    * Users can purchase a membership on the pricing page. 
+    * Uses a "points" system in account on website to purchase membership. 
+    * Points are displayed for each user.
+
+## Description of the MVP's functionality
+* The MVP allows users to sign up for an account. Once all the fields are completed, the user will receive an email authentication. 
+* Users have a profile page that displays their personal information, past and current rides, and their current membership. 
+* Users can rent and return a bike with a membership.
+* Through the map, users can see the number of docked bikes at each station.
+* Users can purchase a membership through the pricing page.
+
 ## Recommended walkthrough steps to observe key features
-**
-* On the landing page, check the map and its features. We should observe a station with the number of docked bikes in the Northampton area 
-* Any users (logged in or not) should be able to see details of the app by clicking on “About Us” at the navigation bar 
-* Clicking on Profile, when one is not logged in, will take you to a login page. If you don’t have an account yet, you can select the link to “Sign Up!” and create a new account. Sign-up page will ask the user to input their username, email, password, and confirmation password. You could also test the login by using already registered account, which is “Bikea” for username and “Bikea” for password. Wrong match between the username and password will produce a warning message in black “Incorrect username and/or password”. Once you have successfully logged in, it should take you to the static profile page. Note that for this prototype, confirmation email is not sent and the user can create an account with fake email address. 
-* Our current static profile page is just a simple html that does not reflect the logged-in users information. For this prototype, the successful login will take you to a page with the persona of Ariel Thirster.
-* “Pricing and Plans” will take you to a static page with a table of 2 pricing options. For the purpose of this submission, we have not included a payment process.
-* “Activate a Bike” is currently a static page with an activation code that the user can enter on a bike to activate it.
-* Log out option is also available at the top of the “personal” profile page. When selected, the user can logout.
-Note that logged in status is maintained even when the user goes through other pages unless the user selects logout or  quits the page. 
-
-
-
+* Make sure to use `rails s` to authenticate email to create an account.
+* On the landing page, check the map and its features. Observe the different locations of the stations and the number of docked bikes at each station.
+* Any users (logged in or not) should be able to see details of the app by clicking on “About Us” at the navigation bar. Click through all the pages on the navigation bar.
+* Click on the profile page. If you do not have an account follow the instructions to sign-up. Otherwise, log-in.
+    * After creating a new account, you must activate that account by clicking on the link sent to your email. 
+* After logging in, view your profile page that reflects your personal information, membership, and past rides. 
+* Click on Pricing Page to purchase a membership. Click on the membership you would like to purchase. 
+    * Go to your profile page to make sure your purchased membership is reflected there. 
+* Click on Activate a Bike to rent a bike. To test, refer to database to find the bike_ids at each current station. You must enter a valid bike_id at current station in order to rent a bike. If the bike_id is not at the station, you may not rent that bike.   
+    * For an initial test you can try: bike_id: 6908 at Florence Bank Station.
+* Return your bike by selecting the station you are returning to. 
+* Click on Profile Page to see your ride reflected on your profile page. 
+* Log out from profile page. 

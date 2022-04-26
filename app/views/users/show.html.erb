@@ -1,2 +1,46 @@
-<h1>Welcome!</h1>
-<%= @user.username %>
+<br>
+<h1>Profile Page</h1>
+<% if logged_in? %>
+  <%= render 'sessions/logged_in' %>
+  <body>
+          <h1>Welcome, <%= @user.first_name.camelcase %>!</h1> 
+
+      <div>
+          <hr/>
+          <br>
+          <h2>Personal Information <a class="btn btn-outline-info" href='/editInfo'>Edit</a> </h2> 
+          <b>Name:</b> <%= @user.first_name.camelcase %> <%= @user.last_name.camelcase %> 
+          <br>
+          <b>Email:</b> <%= @user.email %> 
+          <br>
+          <b>Date Of Birth:</b> <%= @user.birthMonth%> <%= @user.birthDay%>, <%= @user.birthYear%><br>
+		  <b>Points:</b> <%= @user.points%>
+        
+          <br><br><br>
+          <hr/>
+          <h2>Plans/Membership <a class="btn btn-outline-info" href='/pricing'>Edit</a></h2>
+          Membership ID: <%= Membership.find_by(identifier: @user.membershipID).name%>
+
+        
+          <br><br><br>
+          <hr/> 
+          <h2>Rides:</h2>
+          <div class="flexbox vertical stretch">  
+            <% if @rides.present? %>
+              <%= render(partial: "rides/row", collection: @rides, as: :rides) %>
+            <% else %>
+            <div class="empty">
+              No rides yet.
+            </div>
+            <% end %>
+          </div> 
+
+      </div>
+  </body>
+  
+<% else %>
+  <%= render 'sessions/not_logged_in' %>
+<% end %>
+
+
+

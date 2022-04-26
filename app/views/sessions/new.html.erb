@@ -1,21 +1,27 @@
-
+<br>
 <div class = "Login">
-<h1>Log In</h1>
+<h1><center>Log In</center></h1>
 
+<br>
 
-<!-- error msg for invalid input -->
- <% if flash[:notice] %>
+ <% if flash[:warning] %>
       <div class="flash">
-        <%= flash[:notice] %>
+        <%= flash[:warning] %>
       </div>
     <% end %>
 
 <%= form_for(:session, url: login_path) do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username %>
+  <br>
   <%= f.label :password %>
   <%= f.password_field :password %>
   <%= f.submit "Log in" %>
+  <br>
+  <center><%= link_to "(forgot password)", new_password_reset_path %> </center>
+  
+  
+  
 <% end %>
 </div>
 

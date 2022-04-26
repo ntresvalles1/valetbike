@@ -1,0 +1,12 @@
+<% if logged_in? %>
+    <p> Thank you for your support ! </p>
+    <a class="btn btn-outline-info" href='/sessions'>Return to Home Page</a>
+
+<% else %>
+	<br>
+		<center><h1> Purchase Membership </h1></center>
+		<br>
+		In order to purchase a membership, please login! 
+		<br><br>
+		<center><a class="btn btn-outline-info" href="/login">Log In!</a></center>
+	<% end %>

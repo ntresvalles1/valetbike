@@ -33,3 +33,9 @@ body {
   color: var(--black-color);
   background: var(--white-color);
 }
+
+hr.rounded {
+  border: 5;
+  border-top: 10px solid black;
+  border-radius: 5px;
+}

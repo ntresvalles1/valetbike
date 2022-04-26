@@ -21,18 +21,29 @@ $(function () {
     }).addTo(map);
 
     var stationIcon = L.icon({
-        iconUrl: 'assets/bikeicon.png',
-        iconSize:     [50, 50], // size of the icon
+        className: 'custom-div-icon',
+        iconUrl: 'assets/marker-icon.png',
+        shadowUrl: 'assets/marker-shadow.png',
+        //iconUrl: 'assets/bikeicon.png',
+        //html: "<div style='background-color:#c30b82;' class='marker-pin'></div><i class='material-icons'>weekend</i>",
+        iconSize:     [20, 33], // size of the icon
         iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
         popupAnchor:  [-3, -76], // point from which the popup should open relative to the iconAnchor
     });
+
+    
 
     for (var i=0; i<stations["length"]; i+=1){
         var s = stations[i.toString()];
         if (s["geometry"]["coordinates"][0] != null && s["geometry"]["coordinates"][1] != null){
             console.log(s["properties"]["name"]);
             var stationmarker = L.marker([s["geometry"]["coordinates"][0], s["geometry"]["coordinates"][1]], { icon: stationIcon }).addTo(map);
-            stationmarker.bindPopup(s["properties"]["name"]).openPopup();
+            //stationmarker.bindPopup(s["properties"]["name"]).openPopup();
+            //"<b>Hello world!</b><br>I am a popup."
+            var message = "<b>" + s["properties"]["name"] + "</b><br> Available Bikes: " + s["properties"]["docked_bikes"] + "/" + s["properties"]["docks"];
+            stationmarker.bindPopup(message).openPopup();
+
+            
         }
     }
 

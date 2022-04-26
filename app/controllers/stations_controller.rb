@@ -20,7 +20,9 @@ class StationsController < ApplicationController
             },
             properties: {
               name: station.name,
-              address: station.address
+              address: station.address,
+              docks: station.docks,
+              docked_bikes: station.docked_bikes.count
             }
           }
         end
